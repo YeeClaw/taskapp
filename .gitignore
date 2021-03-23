@@ -1,8 +1,8 @@
 # Directories
-.idea/
+# .idea/
 out/
 
 # Wildcards
-*.iml
+# *.iml
 
 # Specific files
