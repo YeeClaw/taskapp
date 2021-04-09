@@ -27,10 +27,14 @@ public class App extends JFrame implements ActionListener{
 
         // Create button that leads to contact manager
         JButton contactButton = new JButton("Contacts :)))))))))");
+        contactButton.setBackground(Color.PINK);
         menu.add(contactButton);
 
         // Open window for task manager
         manageButton.addActionListener(e -> taskWindow());
+
+        // Open window for contact book
+        contactButton.addActionListener(e -> contactWindow());
     }
 
     public void taskWindow() {
@@ -48,6 +52,29 @@ public class App extends JFrame implements ActionListener{
         newTask.addActionListener(e -> createTask(panel));
     }
 
+    public void contactWindow() {
+
+        JFrame mainWindow = new JFrame("Contact Book");
+        mainWindow.setVisible(true);
+        mainWindow.setSize(720, 1280);
+        JPanel panel = new JPanel();
+        mainWindow.add(panel);
+
+        JButton newContact = new JButton("New Contact");
+        panel.add(newContact);
+
+        newContact.addActionListener(e -> createContact(panel));
+    }
+
+    public void createContact(JPanel panel) {
+
+        JTextField infoBox = new JTextField();
+        infoBox.setAlignmentX(Component.LEFT_ALIGNMENT);
+        infoBox.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+
+        panel.add(infoBox);
+        SwingUtilities.updateComponentTreeUI(panel);
+    }
 
     public void createTask(JPanel thing) {
 
