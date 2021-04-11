@@ -9,6 +9,8 @@ public class App extends JFrame implements ActionListener{
 
     private static final long serialVersionUID = 1L;
 
+    JTextField taskText;
+
     public App() {
 
         // Basic settings
@@ -17,16 +19,17 @@ public class App extends JFrame implements ActionListener{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+
         JPanel menu = new JPanel();
         add(menu);
 
         // Create button that leads to the task manager
-        JButton manageButton = new JButton("Task Manager :)");
+        JButton manageButton = new JButton("Task Manager");
         manageButton.setBackground(Color.PINK);
         menu.add(manageButton);
 
         // Create button that leads to contact manager
-        JButton contactButton = new JButton("Contacts :)))))))))");
+        JButton contactButton = new JButton("Contacts");
         menu.add(contactButton);
 
         // Open window for task manager
@@ -40,29 +43,36 @@ public class App extends JFrame implements ActionListener{
         mainWindow.setSize(720, 1280);
         JPanel panel = new JPanel();
         mainWindow.add(panel);
+        mainWindow.setSize(375, 900);
 
         JButton newTask = new JButton("New Task :)");
         panel.add(newTask);
-        // thing.setBounds(100, 200, 10, 20);
+
+        JButton save = new JButton("Save :)");
+        panel.add(save);
+
+
 
         newTask.addActionListener(e -> createTask(panel));
     }
 
-
     public void createTask(JPanel thing) {
 
-        JButton newButton = new JButton("complete");
-        newButton.setLayout(null);
-        // newButton.setBounds(100, 100, 50, 10);
-        newButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-        newButton.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+        // JButton newButton = new JButton("complete");
+        // thing.add(newButton);
 
-        thing.add(newButton);
+        JTextField taskText = new JTextField();
+        taskText.setColumns(20);
+        thing.add(taskText);
+
+
         SwingUtilities.updateComponentTreeUI(thing);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        
     }
+
+
 }
