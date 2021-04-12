@@ -55,15 +55,7 @@ public class App extends JFrame implements ActionListener{
         mainWindow.setSize(720, 1280);
         JPanel panel = new JPanel();
         mainWindow.add(panel);
-        mainWindow.setSize(375, 900);
-
-        // JButton newTask = new JButton("New Task :)");
-        // panel.add(newTask);
-        // newTask.addActionListener(e -> createTask(panel));
-
-        // JTextField task1 = new JTextField();
-        // task1.setColumns(20);
-        // panel.add(task1);
+        mainWindow.setSize(375, 250);
 
         JTextArea task1 = new JTextArea();
         task1.setColumns(20);
@@ -75,17 +67,9 @@ public class App extends JFrame implements ActionListener{
 
         String line = "";
         while (fileScan.hasNextLine()) {
-            // String line(i) = fileScan.nextLine();
             line += fileScan.nextLine() + "\n";
         }   
         
-        // String line = fileScan.nextLine();
-        
-        // String line1 = "- eat";
-        // String line2 = "- sleep";
-        // String line3 = "- kill some one";
-
-        // String yumm = "hey girl heyyy";
         System.out.print(line);
         task1.setText(line);
 
@@ -116,39 +100,6 @@ public class App extends JFrame implements ActionListener{
         writer.close();
     }
     
-    // System.out.println("Which game are you editing?");
-//                 String fname = userScan.nextLine();
-//                 File changedFile = new File(fname);
-//                 String oldFile = "";
-//                 String[] split = null;
-//                 Scanner fileScan = new Scanner(changedFile);
-
-// ArrayList<String> names = new ArrayList<String>();
-//                     while (fileScan.hasNextLine()) {
-//                         String line = fileScan.nextLine();
-//                         split = line.split(",");
-//                         names.add(split[0].toLowerCase());
-//                         System.out.println(line);
-//                     }
-
-    // public void createTask(JPanel thing) {
-
-    //     // JButton newButton = new JButton("complete");
-    //     // thing.add(newButton);
-
-    //     JTextField taskText = new JTextField();
-    //     taskText.setColumns(20);
-    //     thing.add(taskText);
-
-
-    //     SwingUtilities.updateComponentTreeUI(thing);
-    // }
-
-    
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
-    }
-
-
+    public void actionPerformed(ActionEvent e) {}
 }
