@@ -9,6 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.io.FileReader;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class App extends JFrame implements ActionListener{
 
@@ -35,13 +38,21 @@ public class App extends JFrame implements ActionListener{
         menu.add(manageButton);
 
         // Create button that leads to contact manager
-        JButton contactButton = new JButton("Contacts");
-        menu.add(contactButton);
+        JButton timerButton = new JButton("Timer");
+        menu.add(timerButton);
 
         // Open window for task manager
         manageButton.addActionListener(e -> {
             try {
                 taskWindow();
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        timerButton.addActionListener(e -> {
+            try {
+                timerWindow();
             } catch (FileNotFoundException e1) {
                 e1.printStackTrace();
             }
@@ -99,6 +110,42 @@ public class App extends JFrame implements ActionListener{
         writer.print(text);
         writer.close();
     }
+
+    public void timerWindow() throws FileNotFoundException {
+
+        JFrame newWindow = new JFrame("Timer");
+        newWindow.setVisible(true);
+        newWindow.setSize(720, 1280);
+
+        JPanel timerPanel = new JPanel();
+        newWindow.add(timerPanel);
+        newWindow.setSize(375, 250);
+
+        JTextField setTime = new JTextField();
+        setTime.setColumns(5);
+        timerPanel.add(setTime);
+
+        JButton setTheTime = new JButton("set");
+        timerPanel.add(setTheTime);
+
+        setTheTime.addActionListener(e -> {
+            timer(timerPanel, setTime);
+        });
+
+    }
+
+    public void timer(JPanel timerPanel, JTextField setTime){
+        
+        String time = setTime.getText();
+
+        JLabel label = new JLabel(String.valueOf(time));
+        timerPanel.add(label);
+
+        SwingUtilities.updateComponentTreeUI(timerPanel);
+
+        //right now it just prints the time inputed, you just need to figure out how to make the timer part work
+    }
+
     
     @Override
     public void actionPerformed(ActionEvent e) {}
