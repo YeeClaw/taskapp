@@ -1,7 +1,10 @@
 # Directories
 .idea/
+.vscode/
+out/
 
 # Wildcards
 *.iml
+
 
 # Specific files
