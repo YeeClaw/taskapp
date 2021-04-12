@@ -1,8 +1,10 @@
-import java.util.ArrayList;
+package com.apcsa.taskapp;
+
 import java.io.File;
-import java.io.*;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class TodoList {
     private ArrayList<Task> todolist = new ArrayList<Task>();
@@ -10,14 +12,12 @@ public class TodoList {
     
     public TodoList(ArrayList<Task> tasks, String listName)  {
         
-        // for(int i=0; i<length; i++ ) {
-        //     myArray[i] = s.nextInt();
-        //  }
+
     }
 
-    public void fileWriter() {
-        File file = new File(file);
-        Printwriter output = new PrintWriter(new FileWriter(file));
+    public void fileWriter() throws IOException {
+        File file = new File("");
+        PrintWriter output = new PrintWriter(new FileWriter(file));
 
         // puts stuff into the file
         output.println("yuh");

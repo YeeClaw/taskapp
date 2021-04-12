@@ -1,17 +1,15 @@
 package com.apcsa.taskapp; // Package declaration
 
 // Imports
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.io.FileReader;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class App extends JFrame implements ActionListener{
 
@@ -129,21 +127,35 @@ public class App extends JFrame implements ActionListener{
         timerPanel.add(setTheTime);
 
         setTheTime.addActionListener(e -> {
-            timer(timerPanel, setTime);
+            try {
+                timer(timerPanel, setTime);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
         });
 
     }
 
-    public void timer(JPanel timerPanel, JTextField setTime){
+    public void timer(JPanel timerPanel, JTextField setTime) throws InterruptedException {
         
         String time = setTime.getText();
+        int timeint = Integer.parseInt(time);
 
         JLabel label = new JLabel(String.valueOf(time));
         timerPanel.add(label);
 
-        SwingUtilities.updateComponentTreeUI(timerPanel);
+        panelUpdate(timerPanel, timeint);
 
         //right now it just prints the time inputed, you just need to figure out how to make the timer part work
+    }
+    
+    public void panelUpdate(JPanel panel, int time) throws InterruptedException {
+        
+        for(int i = 0; i <= time; i++) {
+            
+            SwingUtilities.updateComponentTreeUI(panel);
+            Thread.sleep(1000);
+        }
     }
 
     

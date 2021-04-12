@@ -1,19 +1,6 @@
 package com.apcsa.taskapp;
 
-import java.io.File;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Collections;
-
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 
 public class Task {
@@ -36,7 +23,8 @@ public class Task {
         container.add(taskText);
 
         container.add(newButton);
-        SwingUtilities.updateComponentTreeUI(thing);
-        // return 
+        SwingUtilities.updateComponentTreeUI(container);
+
+        return null;
     }
 }
