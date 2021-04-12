@@ -144,21 +144,25 @@ public class App extends JFrame implements ActionListener{
         JLabel label = new JLabel(String.valueOf(time));
         timerPanel.add(label);
 
-        panelUpdate(timerPanel, timeint);
+        ActionListener clock = e -> {
 
-        //right now it just prints the time inputed, you just need to figure out how to make the timer part work
-    }
-    
-    public void panelUpdate(JPanel panel, int time) throws InterruptedException {
-        
-        for(int i = 0; i <= time; i++) {
-            
-            SwingUtilities.updateComponentTreeUI(panel);
-            Thread.sleep(1000);
-        }
+            if(timeint != 0) {
+                int i = timeint - 1;
+
+                label.setText("" + i);
+                SwingUtilities.updateComponentTreeUI(timerPanel);
+            }
+        };
+
+        Timer timer = new Timer(1000, clock);
+        timer.setRepeats(true);
+        timer.start();
     }
 
-    
+
     @Override
-    public void actionPerformed(ActionEvent e) {}
+    public void actionPerformed(ActionEvent e) {
+
+
+    }
 }
